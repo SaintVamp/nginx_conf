@@ -52,3 +52,5 @@ fi
 sleep 2
 uci set nginx.global.uci_enable=false
 /etc/init.d/nginx restart
+sleep 2
+/etc/init.d/nginx restart
