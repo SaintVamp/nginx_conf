@@ -29,29 +29,13 @@ ca_path=/etc/nginx/ca/
 if [ -d $ca_path ]
 then
     echo "path exist"
-    ssl_cer1=/etc/nginx/ca/svsoft.fun.cer
-    ssl_key1=/etc/nginx/ca/svsoft.fun.key
-    ssl_cer2=/etc/nginx/ca/efdata.fun.cer
-    ssl_key2=/etc/nginx/ca/efdata.fun.key
-    if [ ! -e "$ssl_cer1" ]; then
-        curl -o /etc/nginx/ca/svsoft.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.cer
-    fi
-    if [ ! -e "$ssl_key1" ]; then
-        curl -o /etc/nginx/ca/svsoft.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.key
-    fi
-    if [ ! -e "$ssl_cer2" ]; then
-        curl -o /etc/nginx/ca/efdata.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.cer
-    fi
-    if [ ! -e "$ssl_key2" ]; then
-        curl -o /etc/nginx/ca/efdata.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.key
-    fi
 else
     mkdir /etc/nginx/ca/
-    curl -o /etc/nginx/ca/svsoft.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.cer
-    curl -o /etc/nginx/ca/svsoft.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.key
-    curl -o /etc/nginx/ca/efdata.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.cer
-    curl -o /etc/nginx/ca/efdata.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.key
 fi
+curl -o /etc/nginx/ca/svsoft.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.cer
+curl -o /etc/nginx/ca/svsoft.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/svsoft.fun.key
+curl -o /etc/nginx/ca/efdata.fun.cer https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.cer
+curl -o /etc/nginx/ca/efdata.fun.key https://gitee.com/saintvamp/nginx_conf/raw/master/efdata.fun.key
 
 hostname=$(uci get system.@system[0].hostname)
 if [ "$hostname" = "R404" ]; then
