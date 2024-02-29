@@ -47,6 +47,6 @@ elif [ "$hostname" = "R2804" ]; then
 fi
 sleep 2
 uci set nginx.global.uci_enable=false
-/etc/init.d/nginx restart
+/etc/init.d/nginx reload
 sleep 2
-/etc/init.d/nginx restart
+/etc/init.d/nginx reload
