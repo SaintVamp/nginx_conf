@@ -44,6 +44,9 @@ if [ "$hostname" = "R404" ]; then
 elif [ "$hostname" = "R2804" ]; then
     echo "run in R2804"
     curl -o /etc/nginx/nginx.conf https://gitee.com/saintvamp/nginx_conf/raw/master/nginx-2804.conf
+elif [ "$hostname" = "R207" ]; then
+    echo "run in R207"
+    curl -o /etc/nginx/nginx.conf https://gitee.com/saintvamp/nginx_conf/raw/master/nginx-207.conf
 fi
 sleep 2
 uci set nginx.global.uci_enable=false
